@@ -235,10 +235,6 @@ static void * flip_thread (void *arg)
       // load texture into GX
       DCFlushRange(texturemem, TEXTUREMEM_SIZE);
 
-      if( vmode != grxModes[DEFAULT_MODE] || !filterDisplay )
-      {
-        GX_InitTexObjLOD(&texobj,GX_NEAR,GX_NEAR_MIP_NEAR,0.0,10.0,0.0,GX_FALSE,GX_FALSE,GX_ANISO_1);
-      }
       // Toggle bilinear filter
       if (filterDisplay)
         GX_InitTexObjLOD(&texobj,GX_LINEAR,GX_LINEAR,0.0,0.0,0.0,GX_FALSE,GX_FALSE,GX_ANISO_4);
