@@ -87,7 +87,7 @@ $(BIN_DIR)/%.dol: $(TEST_OBJ_DIR)/%.elf
 	@echo ----
 
 # Compilation flags.
-COMMON_FLAGS	:= -g -O3 -Wall $(MACHDEP) 
+COMMON_FLAGS	:= -g -O3 -Wall -msdata $(MACHDEP) 
 INCLUDES		:= -Iinclude -I$(LIBOGC_INC)
 DEFINES			:= -DGEKKO
 CFLAGS			:= $(COMMON_FLAGS) $(INCLUDES) $(DEFINES)
