@@ -239,6 +239,11 @@ static void * flip_thread (void *arg)
       {
         GX_InitTexObjLOD(&texobj,GX_NEAR,GX_NEAR_MIP_NEAR,0.0,10.0,0.0,GX_FALSE,GX_FALSE,GX_ANISO_1);
       }
+      // Toggle bilinear filter
+      if (filterDisplay)
+        GX_InitTexObjLOD(&texobj,GX_LINEAR,GX_LINEAR,0.0,0.0,0.0,GX_FALSE,GX_FALSE,GX_ANISO_4);
+      else
+        GX_InitTexObjLOD(&texobj,GX_NEAR,GX_NEAR_MIP_NEAR,0.0,10.0,0.0,GX_FALSE,GX_FALSE,GX_ANISO_1);
       GX_LoadTexObj(&texobj, GX_TEXMAP0);    
 
       draw_square(gx_view); // render textured quad
