@@ -886,9 +886,12 @@ void WII_InitVideoSystem()
   xfb[0] = (u32 *) MEM_K0_TO_K1 (SYS_AllocateFramebuffer (vmode));
   xfb[1] = (u32 *) MEM_K0_TO_K1 (SYS_AllocateFramebuffer (vmode));
   
+#if DEBUG 
   /* Initialise the debug console */
-  /* FIXME: make it optional? It could be annoying when there are a lot of undesirable printf */
+  /* It could be annoying when there are a lot of undesirable printf */
+  /* The console can also be initialised from the application. */
   console_init(xfb[0],20,20,vmode->fbWidth,vmode->xfbHeight,vmode->fbWidth*VI_DISPLAY_PIX_SZ);
+#endif
 
   VIDEO_ClearFrameBuffer(vmode, xfb[0], COLOR_BLACK);
   VIDEO_ClearFrameBuffer(vmode, xfb[1], COLOR_BLACK);
